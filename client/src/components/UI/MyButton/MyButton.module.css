@@ -1,0 +1,21 @@
+.myButton {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+
+.myButton:disabled {
+    background-color: rgb(181, 181, 181);
+}
+
+.myButton:disabled:hover {
+    background-color: gray;
+}
+
+.myButton:hover {
+    background-color: #45a049;
+}
