@@ -1,7 +1,6 @@
 
 import {Injectable} from '@nestjs/common';
 import { Category } from './interfaces/category.interface';
-import { fakeRepositoryService } from 'src/repository/repository.service';
 import { NoteType } from 'src/notes/interfaces/notes.interface';
 
 @Injectable()

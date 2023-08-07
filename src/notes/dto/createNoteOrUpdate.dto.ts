@@ -1,4 +1,4 @@
-import { IsIn, IsString, Length, Allow } from "class-validator";
+import { IsIn, IsString, Length } from "class-validator";
 import { Category } from "src/categoryes/interfaces/category.interface";
 
 export class CreateOrUpdateCatDto {

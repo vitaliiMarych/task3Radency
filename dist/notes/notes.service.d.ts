@@ -1,29 +1,17 @@
 import { HttpException } from '@nestjs/common';
+import { Note } from './notes.entity';
 import { categoryesService } from 'src/categoryes/categoryes.service';
 import { Category } from 'src/categoryes/interfaces/category.interface';
-import { fakeRepositoryService } from 'src/repository/repository.service';
 export declare class NotesService {
-    private readonly repository;
+    private notesRepository;
     private readonly categoryHelper;
-    constructor(repository: fakeRepositoryService, categoryHelper: categoryesService);
-    getAllNotes(): {
-        id: number;
-        createdTime: string;
-        content: string;
-        category: Category;
-        archived: boolean;
-    }[] | HttpException;
-    getOneNote(id: number): {
-        id: number;
-        createdTime: string;
-        content: string;
-        category: Category;
-        archived: boolean;
-    } | HttpException;
-    getNoteStats(): any[] | HttpException;
-    addNote(noteContent: string, noteCategory: Category): HttpException;
-    removeNote(id: number): HttpException;
-    updateNote(id: number, noteContent: string, noteCategory: Category): HttpException;
-    archiveNote(id: number): HttpException;
-    unarchiveNote(id: number): HttpException;
+    constructor(notesRepository: typeof Note, categoryHelper: categoryesService);
+    getAllNotes(): Promise<Note[] | HttpException>;
+    getOneNote(id: number): Promise<Note | HttpException>;
+    getNoteStats(): Promise<any[] | HttpException>;
+    addNote(noteContent: string, noteCategory: Category): Promise<HttpException>;
+    removeNote(id: number): Promise<HttpException>;
+    updateNote(id: number, noteContent: string, noteCategory: Category): Promise<HttpException>;
+    archiveNote(id: number): Promise<HttpException>;
+    unarchiveNote(id: number): Promise<HttpException>;
 }

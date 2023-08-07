@@ -3,7 +3,9 @@ FROM node:20.5.0-alpine
 WORKDIR /app
 
 COPY package*.json ./
+COPY *.env ./
 
+# RUN npm i --save @nestjs/config
 RUN npm install
 
 COPY . .

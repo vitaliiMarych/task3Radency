@@ -1,27 +1,14 @@
-import { HttpException } from '@nestjs/common';
 import { NotesService } from './notes.service';
 import { CreateOrUpdateCatDto } from './dto/createNoteOrUpdate.dto';
 export declare class NotesController {
     private readonly notesService;
     constructor(notesService: NotesService);
-    getAllNotes(): Promise<{
-        id: number;
-        createdTime: string;
-        content: string;
-        category: import("../categoryes/interfaces/category.interface").Category;
-        archived: boolean;
-    }[] | HttpException>;
-    getNoteStats(): Promise<any[] | HttpException>;
-    getNoteById(id: number): Promise<{
-        id: number;
-        createdTime: string;
-        content: string;
-        category: import("../categoryes/interfaces/category.interface").Category;
-        archived: boolean;
-    } | HttpException>;
-    createNote(note: CreateOrUpdateCatDto): Promise<HttpException>;
-    deleteNote(id: number): Promise<HttpException>;
-    archiveNote(id: number): Promise<HttpException>;
-    unarchiveNote(id: number): Promise<HttpException>;
-    updateNote(id: number, note: CreateOrUpdateCatDto): Promise<HttpException>;
+    getAllNotes(): Promise<import("./notes.entity").Note[] | import("@nestjs/common").HttpException>;
+    getNoteStats(): Promise<any[] | import("@nestjs/common").HttpException>;
+    getNoteById(id: number): Promise<import("./notes.entity").Note | import("@nestjs/common").HttpException>;
+    createNote(note: CreateOrUpdateCatDto): Promise<import("@nestjs/common").HttpException>;
+    deleteNote(id: number): Promise<import("@nestjs/common").HttpException>;
+    archiveNote(id: number): Promise<import("@nestjs/common").HttpException>;
+    unarchiveNote(id: number): Promise<import("@nestjs/common").HttpException>;
+    updateNote(id: number, note: CreateOrUpdateCatDto): Promise<import("@nestjs/common").HttpException>;
 }

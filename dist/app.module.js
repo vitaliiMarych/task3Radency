@@ -9,11 +9,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const notes_module_1 = require("./notes/notes.module");
+const sequelize_1 = require("@nestjs/sequelize");
 let AppModule = exports.AppModule = class AppModule {
 };
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [notes_module_1.NotesModule]
+        imports: [
+            sequelize_1.SequelizeModule.forRoot({
+                dialect: 'postgres',
+                host: 'postgres',
+                port: 5432,
+                username: 'postgres',
+                password: 'postgres',
+                database: 'task3',
+                autoLoadModels: true,
+            }), notes_module_1.NotesModule
+        ]
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map
